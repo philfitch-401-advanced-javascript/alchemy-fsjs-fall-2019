@@ -31,6 +31,10 @@ Things we want to be able to validate:
 
 We also want to be able to get the right validation function given a corresponding "rule". This lab has you figure out you want to specify the "rule". For now, the rule needs to indicate the `type`, but ideally design the rule to also have additional aspects like if the value is `required` or not.
 
+### STRETCH GOAL
+
+Change the tests and code to test if the input value _could_ be used as the specified type (coerced).
+
 ### Testing
 
 *Validation Module* 
