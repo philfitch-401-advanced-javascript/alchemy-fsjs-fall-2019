@@ -1,36 +1,44 @@
 # LAB: Classes, Errors, Type Coercion
 
+We can continue with same lab. **Make sure to work on new branch**
 
 ## Requirements
 
 ---
 
-### Caster
+### Caster Methods for Validator
 
-This is a modified repeat of Lab 01. You can start by copying your existing code and tests.
-We are going to add new methods that, instead of returning `true`/`false` as to whether an input is of a type,'
-the function should coerce the type (if that makes sense), or throw an error if that type doesn't make sense.
+We are going to add new methods to `validator` module that, instead of returning 
+`true`/`false` as to whether an input is of a type, the function should coerce the type (if that makes sense), 
+or throw an error if that type doesn't make sense.
+
+Make use of your `isType` functions as makes sense.
+
+You only need casters for:
+
+1. String
+1. Bool
+1. Number
+1. Date
+
+You will need a `getCaster` method
 
 - Use TDD to drive the code development
 - Use a custom `CastError` to report what type was expected, and what value failed
 - You will need to assert that a thrown Error happened!
 
-Functions:
-
-- `castToString`
-- `castToNumber`
-- `castToBoolean`
-- `castToObject`
-- `castToArray`
-- `castToDate` (new)
-
 ### Schema Reader
 
-Create a `Schema` class that takes in a schema and exposes a `validate` method that takes a `model`
-and uses Object inspection methods to "read" the schema, the call the correct caster for each field of the schema,
-and store the returned values onto a new object. Store the object on `this.record`;
+The starter code contains a `Schema` class that takes in a schema and exposes a `validate` method.
+`validate` uses Object inspection methods to "read" the schema, and call the correct caster for each 
+field of the schema, and store the returned values onto a new object. Return this object
 
-Create the schema implied by the model in `./data/data.json` for your tests
+1. Create the schema implied by the model in `./data/data.json` for your tests.
+1. They Array field is a STRETCH goal, get everything else working first
+1. Your schema should be an object with a `type` and `required`
+1. You will need to wrap the calls to the Casters with `try`/`catch`. Accumulate errors _info_ into an error array.
+1. Add _info_ for missing properties into errors array.
+1. If there are errors after validation, throw a `ModelError`, otherwise return the new object
 
 ### OPTIONAL: Refactor Vehicles to Classes
 
