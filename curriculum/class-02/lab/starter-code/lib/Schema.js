@@ -13,6 +13,7 @@ class Schema {
    * Run validation on the supplied model 
    * @param {object} model - the model to validate
    * @throws {ModelError} throws if model does not conform to schema
+   * @returns {object} - validated data record
    */
   validate(model) {
 

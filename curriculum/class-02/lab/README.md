@@ -34,7 +34,7 @@ The starter code contains a `Schema` class that takes in a schema and exposes a 
 field of the schema, and store the returned values onto a new object. Return this object
 
 1. Create the schema implied by the model in `./data/data.json` for your tests.
-1. They Array field is a STRETCH goal, get everything else working first
+1. They Array and Object fields are STRETCH goals, get everything else working first
 1. Your schema should be an object with a `type` and `required`
 1. You will need to wrap the calls to the Casters with `try`/`catch`. Accumulate errors _info_ into an error array.
 1. Add _info_ for missing properties into errors array.
