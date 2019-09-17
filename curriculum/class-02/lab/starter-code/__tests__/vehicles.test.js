@@ -1,5 +1,3 @@
-'use strict';
-
 const Vehicles = require('../lib/vehicles');
 
 describe('Vehicles', () => {
