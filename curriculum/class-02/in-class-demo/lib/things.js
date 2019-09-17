@@ -42,7 +42,7 @@ const evaluateDrivers = (drivers) => {
   });
 
   return badDrivers;
-  
+
   // if(badDrivers.length) {
   //   throw /*an error */
   // }
