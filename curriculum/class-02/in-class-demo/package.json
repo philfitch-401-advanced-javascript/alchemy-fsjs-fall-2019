@@ -1,0 +1,18 @@
+{
+  "name": "in-class-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "object-methods.js",
+  "scripts": {
+    "lint": "eslint **/*.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.4.0",
+    "jest": "^24.9.0"
+  }
+}
