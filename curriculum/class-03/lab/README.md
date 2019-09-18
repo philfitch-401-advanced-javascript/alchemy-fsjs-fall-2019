@@ -42,6 +42,7 @@ returned objects
 Refactor your implementation to use async/await.
 You can also refactor your tests to use async/await.
 
-## Assignemnt Submission Instructions
+## Assignment Submission Instructions
+
 Refer to the the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for the complete lab submission process and expectations
 
