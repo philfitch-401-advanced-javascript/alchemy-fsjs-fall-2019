@@ -18,8 +18,8 @@ class DocumentCollection {
   get(id) {
     // TODO:
     // 1. create file path from id
-    // 1. use promisified fs to read file
-    // 2. deserialize contents
+    // 2. use promisified fs to read file
+    // 3. deserialize contents
     // 4. "return" object
     // 5. if expected, turn promisified fs errors into meaningful database errors
   }
