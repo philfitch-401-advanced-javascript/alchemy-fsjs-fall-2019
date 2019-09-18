@@ -1,5 +1,6 @@
-const DocumentCollection = require('./lib/document-collection');
+const copyFile = require('./lib/copy-file');
 
-const documents = new DocumentCollection(/* path to use */);
-
-// write some code to exercise your document collection
+copyFile('./packae.json', './copy.json')
+  .then(() => {
+    console.log('copy complete!');
+  });
