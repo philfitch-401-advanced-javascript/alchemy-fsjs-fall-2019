@@ -18,8 +18,7 @@ describe('Copy File', () => {
     const source = './source.txt';
     const dest = './dest.txt';
     const fileContents = 'file contents';
-    const readPromise = Promise.resolve(fileContents);
-    readFile.mockReturnValueOnce(readPromise);
+    readFile.mockResolvedValue(fileContents);
 
     // act
     return copyFile(source, dest)
@@ -33,6 +32,19 @@ describe('Copy File', () => {
         expect(writeCalls.length).toBe(1);
         expect(writeCalls[0][0]).toBe(dest);
         expect(writeCalls[0][1]).toBe(fileContents);
+      });
+  });
+
+  it(`propagates error`, () => {
+    // arrange
+    const error = 'file error';
+    readFile.mockRejectedValueOnce(error);
+    expect.assertions(1);
+
+    // act
+    copyFile('badfile', 'dest')
+      .catch(err => {
+        expect(err).toBe(error);
       });
   });
 
