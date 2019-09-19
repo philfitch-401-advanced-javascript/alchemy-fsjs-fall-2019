@@ -27,6 +27,7 @@ describe('Database', () => {
         expect(mkdirpCalls.length).toBe(1); 
         expect(mkdirpCalls[0][0]).toBe(dbPath);
 
+        // const connectionPromise = Database.connectionPromise;
         const { connectionPromise } = Database;
         expect(connectionPromise).not.toBeNull();
         return connectionPromise;
@@ -42,12 +43,13 @@ describe('Database', () => {
     mkdirp.mockResolvedValueOnce();
     mkdirp.mockResolvedValueOnce();
 
-    // act
     return Database.connect(dbPath)
       .then(() => {
+        // act
         return Database.getCollection('test');
       })
       .then(collection => {
+        // assert
         const mkdirpCalls = mkdirp.mock.calls;
         expect(mkdirpCalls.length).toBe(2); 
         expect(mkdirpCalls[0][0]).toBe(dbPath);

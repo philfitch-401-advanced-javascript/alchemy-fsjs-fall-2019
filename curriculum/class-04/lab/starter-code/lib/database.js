@@ -7,8 +7,9 @@ const Database = {
 
   collections: {},
 
-  connect(path) {
-    return this.connectionPromise = mkdirp(path).then(() => path);
+  connect(dir) {
+    this.connectionPromise = mkdirp(dir).then(() => dir);
+    return this.connectionPromise;
   },
 
   close() {

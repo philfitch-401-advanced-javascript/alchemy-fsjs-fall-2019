@@ -10,19 +10,24 @@ s
 
 1. Install `mkdirp` as a runtime dependency.
 
-Updated `files` and `Database` (and tests) we did in class are in `starter-code`.
+Updated `files`, `Database` (and tests) we did in class are in `starter-code`.
+
+There is also the `Schema` class as a reference, but should use your own.
 
 ### Model Class
 
 Starter code contains a module called `model.js` that exports a `Model` class.
 
-It will need use (`require`) `Database` and `Schema`.
+It also contains tests for construction and create.
 
-See starter code for pseudo-code implementation details.
+It is optional to test, but you must implement rest of Model methods
 
 ### Manual Integration Testing
 
-In `index.js`, create a schemaConfig and `Model` instance
+In `index.js`, see if you can exercise the model:
+1. require Database and connect
+1. create a schemaConfig and `Model` instance from that
+1. read and write using `create`, `findById`, and `find`
 
 ## Stretch Goals
 
