@@ -1,4 +1,4 @@
-jest.mock('fs', () => ({
+jest.mock('../lib/files.js', () => ({
   readFile: jest.fn(),
   writeFile: jest.fn(),
   readdir: jest.fn(),
