@@ -3,7 +3,7 @@
 class Model {
   constructor(name, schemaConfig) {
     // Get a DocumentCollection instance from Database using name
-    // and store on "this"
+    // and store _the promise_ on "this"
 
     // Create a Schema instance passing in config
     // and store on "this"
@@ -11,15 +11,21 @@ class Model {
   }
 
   create(model) {
-    // 1. validate model using schema
-    // 2. save returned object to document collection
+    // chain onto the this.collection promise
+    // so that we know the db is ready
+      // 1. validate model using schema
+      // 2. save returned object to document collection
   }
 
   findById(id) {
-    // use document collection to retrieve model
+    // chain onto the this.collection promise
+    // so that we know the db is ready
+      // use document collection to retrieve model
   }
 
   find() {
-    // use document collection to retireve all models
+    // chain onto the this.collection promise
+    // so that we know the db is ready
+      // use document collection to retrieve all models
   }
 }
