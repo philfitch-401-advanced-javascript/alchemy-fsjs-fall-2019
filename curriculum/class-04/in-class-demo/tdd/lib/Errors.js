@@ -8,7 +8,10 @@ class CastError extends Error {
 }
 
 class ModelError extends Error {
-
+  constructor(schemaErrors) {
+    super('Model had schema errors:\n' + schemaErrors.join('\n'));
+    this.schemaErrors = schemaErrors;
+  }
 }
 
 module.exports = {
