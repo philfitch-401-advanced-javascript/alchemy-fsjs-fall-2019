@@ -13,8 +13,6 @@ function getRandomShoutedFile() {
     });
 }
 
-
-
 getRandomShoutedFile()
   .then(text => {
     displayFile(text);
