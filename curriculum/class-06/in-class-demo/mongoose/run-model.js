@@ -1,7 +1,8 @@
+require('dotenv').config();
 const connect = require('./lib/connect');
 const mongoose = require('mongoose');
 
-connect('mongodb://localhost:27017/test-db');
+connect();
 
 const Cat = require('./lib/models/cat');
 

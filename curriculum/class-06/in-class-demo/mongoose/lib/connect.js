@@ -20,7 +20,7 @@ module.exports = (dbUrl = process.env.MONGODB_URI) => {
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true
-  });
+  }).catch(() => {});
 
   const redactedUrl = redactURLAuth(dbUrl);
 
