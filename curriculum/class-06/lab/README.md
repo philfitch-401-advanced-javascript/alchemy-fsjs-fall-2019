@@ -44,7 +44,7 @@ Nested properties will use compound key like `name.first`
 
 ## Express Server
 
-Create an express server with the following routes and assoicated model methods:
+Create an express server with the following routes and associated model methods:
 
 method | route | model method
 ---|---|---
@@ -55,3 +55,5 @@ PUT | /api/thing/:id | Model.findByIdAndUpdate
 DELETE | /api/thing/:id | Model.findByIdAndRemove
 
 Open Postman and manually test your routes, checking in Compass (or `mongo` cli) that data is being saved as expected.
+
+**Include one screenshot image of postman per route in your repository**
