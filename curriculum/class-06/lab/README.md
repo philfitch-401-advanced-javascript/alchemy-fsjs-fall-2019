@@ -53,3 +53,5 @@ GET | /api/thing/:id | Model.findById
 POST | /api/thing | Model.create
 PUT | /api/thing/:id | Model.findByIdAndUpdate
 DELETE | /api/thing/:id | Model.findByIdAndRemove
+
+Open Postman and manually test your routes, checking in Compass (or `mongo` cli) that data is being saved as expected.
