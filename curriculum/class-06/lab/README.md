@@ -48,12 +48,12 @@ Create an express server with the following routes and associated model methods:
 
 method | route | model method
 ---|---|---
-GET | /api/thing | Model.find
-GET | /api/thing/:id | Model.findById
-POST | /api/thing | Model.create
-PUT | /api/thing/:id | Model.findByIdAndUpdate
-DELETE | /api/thing/:id | Model.findByIdAndRemove
+`GET` | `/api/things` | Model.find
+`GET` | `/api/things/:id` | Model.findById
+`POST` | `/api/things` | Model.create
+`PUT` | `/api/things/:id` | Model.findByIdAndUpdate
+`DELETE` | `/api/things/:id` | Model.findByIdAndRemove
 
 Open Postman and manually test your routes, checking in Compass (or `mongo` cli) that data is being saved as expected.
 
-**Include one screenshot image of postman per route in your repository**
+**Include one screenshot image of postman per route**
