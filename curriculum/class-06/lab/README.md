@@ -26,7 +26,7 @@ At least one:
 1. Create an instance of your model
 1. Call `.validateSync`
     - For expected success
-        1. return value should be `null`
+        1. return value should be `undefined`
         1. test `.toJSON` to see what is captured
     - For failures
         1. return value is errors object
