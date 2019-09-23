@@ -44,4 +44,12 @@ Nested properties will use compound key like `name.first`
 
 ## Express Server
 
-Create an express server with the following routes
+Create an express server with the following routes and assoicated model methods:
+
+method | route | model method
+---|---|---
+GET | /api/thing | Model.find
+GET | /api/thing/:id | Model.findById
+POST | /api/thing | Model.create
+PUT | /api/thing/:id | Model.findByIdAndUpdate
+DELETE | /api/thing/:id | Model.findByIdAndRemove
