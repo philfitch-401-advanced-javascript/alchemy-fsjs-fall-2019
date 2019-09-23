@@ -25,13 +25,13 @@ At least one:
 
 1. Create an instance of your model
 1. Call `.validateSync`
-  - For expected success
-    1. return value should be `null`
-    1. test `.toJSON` to see what is captured
-  - For failures
-    1. return value is errors object
-    1. test expected errors
-    1. arrays don't return all errors
+    - For expected success
+        1. return value should be `null`
+        1. test `.toJSON` to see what is captured
+    - For failures
+        1. return value is errors object
+        1. test expected errors
+        1. arrays don't return all errors
 
 Nested properties will use compound key like `name.first`
 
