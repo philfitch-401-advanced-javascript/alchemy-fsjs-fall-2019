@@ -2,7 +2,9 @@
 
 Add fidelity and tests to a fully functional REST API built with Express
 
-**This is a paired Lab**
+You will be continuing with your model lab from Monday.
+
+**This is a paired lab, but each person use own repo**
 
 ## Before you begin
 Refer to *Getting Started*  in the [lab submission instructions](../../../reference/submission-instructions/labs/README.md) for complete setup, configuration, deployment, and submission instructions.
