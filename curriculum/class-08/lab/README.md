@@ -2,7 +2,6 @@
 
 Add fidelity and tests to a fully functional REST API built with Express
 
-You will be continuing with your model lab from Monday.
 
 **This is a paired lab, but each person use own repo**
 
@@ -11,7 +10,7 @@ Refer to *Getting Started*  in the [lab submission instructions](../../../refere
 
 ## Getting Started
 
-In the `starter-code`, there are folders that map to each of the lab assignments. You'll be creating new repositories today, one for each part of the assignment.
+You will be continuing with your model lab from Monday. There is lots of `starter-code` available for boilerplate setup files.
 
 ## Requirements
 
