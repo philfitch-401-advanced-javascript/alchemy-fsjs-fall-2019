@@ -32,7 +32,7 @@ Make sure your server starts:
 
 ### Test API Server
 
-In `__tests__/e2e/` write e2e tests using `supertest`. Follow setup from class demo closely
+In `/e2e` write e2e tests using `supertest`. Follow setup from class demo closely
 
 #### Test `app`
 
