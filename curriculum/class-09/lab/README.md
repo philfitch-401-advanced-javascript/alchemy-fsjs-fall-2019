@@ -203,7 +203,7 @@ While the schemas should look like the data definitions above, these are descrip
 
 ##### `GET /reviews`
 
-**limit to 100 most recent**
+**limit to 100 highest rated**
 
 ```
 [{
@@ -230,6 +230,10 @@ Studio, Films, and Actors can be deleted. **However**:
 
 * Unit tests for models
 * E2E API tests for supported routes
+
+## Deploy
+
+Deploy to heroku
 
 ## Rubric:
 
