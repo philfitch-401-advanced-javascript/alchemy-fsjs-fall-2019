@@ -1,6 +1,7 @@
 /* eslint-disable new-cap */
 const router = require('express').Router();
 const Cat = require('../models/cat');
+const VetVisit = require('../models/vet-visit');
 
 router
   .post('/', (req, res, next) => {
@@ -10,9 +11,17 @@ router
   })
   
   .get('/:id', (req, res, next) => {
-    Cat.findById(req.params.id)
-      .lean()
-      .then(cat => res.json(cat))
+    Promise.all([
+      Cat.findById(req.params.id)
+        .lean(),
+      VetVisit.find({ cat: req.params.id })
+        .select('date')
+        .lean()
+    ])
+      .then(([cat, visits]) => {
+        cat.visits = visits;
+        res.json(cat);
+      })
       .catch(next);
   })
 

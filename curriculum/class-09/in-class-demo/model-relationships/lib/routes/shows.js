@@ -11,7 +11,11 @@ router
   
   .get('/:id', (req, res, next) => {
     Show.findById(req.params.id)
-      .populate('cats')
+      .populate('cats', 'name type')
+      // .populate({
+      //   path: 'cats',
+      //   select: 'name'
+      // })
       .then(show => res.json(show))
       .catch(next);
   });

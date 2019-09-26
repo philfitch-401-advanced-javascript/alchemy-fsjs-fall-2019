@@ -42,17 +42,23 @@ describe.only('shows api', () => {
 
   it('posts a show', () => {
     return postShow(show).then(show => {
-      expect(show).toEqual({
-        _id: expect.any(String),
-        __v: 0,
-        ...show
-      });
-      // .toMatchInlineSnapshot(
-      //   {
-      //     _id: expect.any(String),
-      //     cats: [expect.any(String)]
-      //   });
-
+      expect(show).toMatchInlineSnapshot(
+        {
+          _id: expect.any(String),
+          cats: [expect.any(String)]
+        },
+        `
+        Object {
+          "__v": 0,
+          "_id": Any<String>,
+          "cats": Array [
+            Any<String>,
+          ],
+          "locations": Array [],
+          "title": "Rainbow Cats",
+        }
+      `
+      );
     });
   });
 
@@ -62,16 +68,31 @@ describe.only('shows api', () => {
         .get(`/api/shows/${savedShow._id}`)
         .expect(200)
         .then(({ body }) => {
-          expect(body).toEqual({
-            ...savedShow,
-            cats: [
-              {
-                _id: expect.any(String),
-                __v: 0,
-                ...felix
-              }
-            ]
-          });
+          expect(body).toMatchInlineSnapshot(
+            {
+              _id: expect.any(String),
+              cats: [
+                {
+                  _id: expect.any(String)
+                }
+              ]
+            },
+            `
+            Object {
+              "__v": 0,
+              "_id": Any<String>,
+              "cats": Array [
+                Object {
+                  "_id": Any<String>,
+                  "name": "felix",
+                  "type": "tuxedo",
+                },
+              ],
+              "locations": Array [],
+              "title": "Rainbow Cats",
+            }
+          `
+          );
         });
     });
   });

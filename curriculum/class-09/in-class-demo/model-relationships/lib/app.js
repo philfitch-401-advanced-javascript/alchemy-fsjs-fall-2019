@@ -17,8 +17,10 @@ app.get('/hello', (req, res) => res.send('world'));
 // API ROUTES
 const cats = require('./routes/cats');
 const shows = require('./routes/shows');
+const vetVisits = require('./routes/vet-visits');
 app.use('/api/cats', cats);
 app.use('/api/shows', shows);
+app.use('/api/vet-visits', vetVisits);
 
 // NOT FOUND
 const api404 = require('./middleware/api-404');
