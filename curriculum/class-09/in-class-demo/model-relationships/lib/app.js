@@ -11,6 +11,9 @@ app.use(express.json());
 app.use(express.static('public'));
 app.use(checkConnection);
 
+// IS ALIVE TEST
+app.get('/hello', (req, res) => res.send('world'));
+
 // API ROUTES
 const cats = require('./routes/cats');
 app.use('/api/cats', cats);
