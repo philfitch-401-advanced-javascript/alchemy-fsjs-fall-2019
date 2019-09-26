@@ -4,7 +4,7 @@ const MONGODB_URI = global.__MONGO_URI__;
 const mongoose = require('mongoose');
 
 beforeAll(() => {
-  connect(MONGODB_URI, { log: false });
+  return connect(MONGODB_URI, { log: false });
 });
 
 afterAll(() => {

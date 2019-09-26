@@ -9,14 +9,11 @@ describe('cats api', () => {
 
   const felix = {
     name: 'felix',
-    appearances: {
-      pattern: 'tuxedo',
-      mainColor: 'black'
-    },
+    type: 'tuxedo',
     lives: 9,
     hasSidekick: false,
     media: ['movies', 'comics'],
-    yearIntroduced: 1919,
+    year: 1919,
   };
 
   function postCat(cat) {
@@ -50,10 +47,11 @@ describe('cats api', () => {
   });
 
   it('gets a list of cats', () => {
+    const firstCat = { name: 'cat 1', lives: 9, year: 2019, hasSidekick: false };
     return Promise.all([
-      postCat({ name: 'cat 1', lives: 9, yearIntroduced: 2019 }),
-      postCat({ name: 'cat 2', lives: 9, yearIntroduced: 2019 }),
-      postCat({ name: 'cat 3', lives: 9, yearIntroduced: 2019 }),
+      postCat(firstCat),
+      postCat({ name: 'cat 2', lives: 9, year: 2019, hasSidekick: false }),
+      postCat({ name: 'cat 3', lives: 9, year: 2019, hasSidekick: false }),
     ])
       .then(() => {
         return request
@@ -62,6 +60,11 @@ describe('cats api', () => {
       })
       .then(({ body }) => {
         expect(body.length).toBe(3);
+        expect(body[0]).toEqual({
+          _id: expect.any(String),
+          name: firstCat.name,
+          year: firstCat.year      
+        });
       });
   });
 

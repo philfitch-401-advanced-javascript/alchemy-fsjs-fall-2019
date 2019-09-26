@@ -5,14 +5,11 @@ describe('Cat model', () => {
   it('valid model all properties', () => {
     const data = {
       name: 'felix',
-      appearances: {
-        pattern: 'tuxedo',
-        mainColor: 'black'
-      },
+      type: 'tuxedo',
       lives: 9,
       hasSidekick: false,
       media: ['movies', 'comics'],
-      yearIntroduced: 1919,
+      year: 1919,
     };
 
     const cat = new Cat(data);
@@ -33,17 +30,15 @@ describe('Cat model', () => {
     const { errors } = cat.validateSync();
     expect(errors.name.kind).toBe('required');
     expect(errors.lives.kind).toBe('required');
-    expect(errors.yearIntroduced.kind).toBe('required');
+    expect(errors.year.kind).toBe('required');
   });
 
   it('populates default properties', () => {
     const data = {
       name: 'felix',
-      appearances: {        
-        mainColor: 'black'
-      },
+      types: 'tuxedo',
       lives: 9,
-      yearIntroduced: 1919,
+      year: 1919,
     };
     const cat = new Cat(data);
     const err = cat.validateSync();

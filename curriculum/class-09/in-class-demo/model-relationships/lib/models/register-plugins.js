@@ -1,23 +1,25 @@
 const mongoose = require('mongoose');
 
 const updateOptions = {
-  // what options do we want?
+  new: true,
+  lean: true
 };
 
+
 const updateById = schema => {
-  schema.static('updateById', (id, update) => {
+  schema.static('updateById', function(id, update) {
     return this.findByIdAndUpdate(id, update, updateOptions);
   });
 };
 
 const updateOne = schema => {
-  schema.static('updateOne', (query, update) => {
+  schema.static('updateOne', function(query, update) {
     return this.findOneAndUpdate(query, update, updateOptions);
   });
 };
 
 const exists = schema => {
-  schema.static('exists', (query) => {
+  schema.static('exists', function(query) {
     return this.find(query)
       .count()
       .then(count => count > 0);

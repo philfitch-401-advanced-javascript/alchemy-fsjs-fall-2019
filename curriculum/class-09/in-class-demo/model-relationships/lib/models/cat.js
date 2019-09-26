@@ -1,16 +1,11 @@
 const mongoose = require('mongoose');
 // const Schema = mongoose.Schema;
 const { Schema } = mongoose;
+const { RequiredString } = require('./required-types');
 
 const schema = new Schema({
-  name: {
-    type: String,
-    required: true
-  },
-  appearances: {
-    pattern: String,
-    mainColor: String
-  },
+  name: RequiredString,
+  type: { type: String },
   lives: {
     type: Number,
     required: true,
@@ -25,7 +20,7 @@ const schema = new Schema({
     type: String,
     enum: ['movies', 'comics', 'tv', 'internet']
   }],
-  yearIntroduced: {
+  year: {
     type: Number,
     required: true
   }

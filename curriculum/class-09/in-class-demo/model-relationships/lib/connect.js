@@ -16,12 +16,7 @@ const redactURLAuth = url => {
 };
 
 module.exports = (dbUrl, options = {}) => {
-  mongoose.connect(dbUrl, { 
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true
-  }).catch(() => {});
-
+  
   if(options.log !== false) {
     const redactedUrl = redactURLAuth(dbUrl);
   
@@ -36,4 +31,11 @@ module.exports = (dbUrl, options = {}) => {
       process.exit(0);
     });
   });
+
+  return mongoose.connect(dbUrl, { 
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+  });
+
 };
