@@ -2,7 +2,6 @@ const request = require('../request');
 const db = require('../db');
 
 describe.only('shows api', () => {
-
   beforeEach(() => {
     return Promise.all([
       db.dropCollection('cats'),
@@ -33,7 +32,8 @@ describe.only('shows api', () => {
       .expect(200)
       .then(({ body }) => {
         show.cats[0] = body._id;
-        return request.post('/api/shows')
+        return request
+          .post('/api/shows')
           .send(show)
           .expect(200);
       })
@@ -41,33 +41,38 @@ describe.only('shows api', () => {
   }
 
   it('posts a show', () => {
-    return postShow(show)
-      .then(show => {
-        expect(show).toEqual({
-          _id: expect.any(String),
-          __v: 0,
-          ...show
-        });
+    return postShow(show).then(show => {
+      expect(show).toEqual({
+        _id: expect.any(String),
+        __v: 0,
+        ...show
       });
+      // .toMatchInlineSnapshot(
+      //   {
+      //     _id: expect.any(String),
+      //     cats: [expect.any(String)]
+      //   });
+
+    });
   });
 
   it('gets a show by id', () => {
-    return postShow(show)
-      .then(savedShow => {
-        return request
-          .get(`/api/shows/${savedShow._id}`)
-          .expect(200)
-          .then(({ body }) => {
-            expect(body).toEqual({
-              ...savedShow,
-              cats: [{
+    return postShow(show).then(savedShow => {
+      return request
+        .get(`/api/shows/${savedShow._id}`)
+        .expect(200)
+        .then(({ body }) => {
+          expect(body).toEqual({
+            ...savedShow,
+            cats: [
+              {
                 _id: expect.any(String),
                 __v: 0,
                 ...felix
-              }]
-            });
+              }
+            ]
           });
-      });
+        });
+    });
   });
-
 });

@@ -16,13 +16,15 @@ You **cannot** pass this lab without a commit history that indicates normal back
 ### Setup
 
 1. Create a GitHub org for your pair and make sure devs are admins
+1. Create a `ripe-banana` repository
 1. Reuse boilerplate files to get baseline functionality ASAP
 
 ### Approach
 
 1. Work vertically. That means build the tests, route and model for one entity/resource at a time. Horizontal would be building all the mongoose models first. Don't do that, go vertical!
 1. Start with the entities/resources that don't depend on other resources: `Studio`, `Actor`, and `Reviewer`
-1. As you tackle related model tests, you will need to drop all used collections in `beforeEach`. If you need a related model, that is already tested in another file, you 
+1. Do model unit tests: validate, required, other rules
+1. As you tackle e2e API tests, you will need to drop all used collections in `beforeEach`. If you need a related model, that is already tested in another file, you 
 don't need to retest things you have already tested (like basic POST and GET).
 
 ## Models (Entities/Resources)
@@ -41,6 +43,8 @@ don't need to retest things you have already tested (like basic POST and GET).
 * `<...>` is a placeholder for actual data.
 * `S` = string, `D` = date, `N` = number, `I` = ObjectId
 * Properties marked with `R` are required.
+
+`_id` (and `__v`) properties omitted for clarity.
 
 ### Studio
 
@@ -96,15 +100,13 @@ don't need to retest things you have already tested (like basic POST and GET).
   rating: <rating number 1-5 RN>,
   reviewer: <review _id RI>
   review: <review-text, max-length 140 chars RS>,
-  film: <film-id RI>,
-  createdAt: <created timestamp D>,*
-  updatedAt: <updated timestamp D>*
+  film: <film-id RI>
 }
-
-// *Use mongoose timestamp feature
 ```
 
 ### Routes
+
+Pick the set of routes that fit with your vertical slice.
 
 #### GET
 
@@ -216,7 +218,7 @@ While the schemas should look like the data definitions above, these are descrip
 
 Studio, Films, and Actors, Reviewers and Reviews can be added.
 
-Only Actors and Reviewers can be updated.
+Only Reviewers can be updated.
 
 #### DELETE
 
@@ -227,7 +229,7 @@ Studio, Films, and Actors can be deleted. **However**:
 ## Testing
 
 * Unit tests for models
-* E2E API tests
+* E2E API tests for supported routes
 
 ## Rubric:
 
