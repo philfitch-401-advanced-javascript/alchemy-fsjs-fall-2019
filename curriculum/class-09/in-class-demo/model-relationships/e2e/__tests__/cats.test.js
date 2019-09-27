@@ -38,7 +38,7 @@ describe('cats api', () => {
       return request
         .post('/api/vet-visits')
         .send({
-          score: 20,
+          date: new Date(),
           cat: cat._id
         })
         .expect(200)
@@ -51,7 +51,8 @@ describe('cats api', () => {
               _id: expect.any(String),
               visits: [
                 {
-                  _id: expect.any(String)
+                  _id: expect.any(String),
+                  date: expect.any(String)
                 }
               ]
             },
@@ -70,6 +71,7 @@ describe('cats api', () => {
               "visits": Array [
                 Object {
                   "_id": Any<String>,
+                  "date": Any<String>,
                 },
               ],
               "year": 1919,

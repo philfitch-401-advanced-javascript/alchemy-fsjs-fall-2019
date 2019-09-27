@@ -3,8 +3,8 @@ const { Schema } = mongoose;
 const { ObjectId } = Schema.Types;
 
 const schema = new Schema({
-  score: {
-    type: Number,
+  date: {
+    type: Date,
     required: true
   },
   cat: {
