@@ -32,9 +32,14 @@ stops | array of stop objects, see stop schema below
 
 In addition there are the following APIs for managing tour stops:
 
-* `POST` `/tours/:id/stops` - add a stop to this tour
+* `POST` `/tours/:id/stops` - add a stop to this tour format is:
+    ```json
+    {
+      "address": "123 Main St"
+    }
+    ```
 * `DELETE` `/tours/:id/stops/:stopId` - remove a stop that got cancelled
-* `POST` `/tours/:id/stops/:stopId/attendance` - update a stop (after complete) with number of attendees (NOTE: this should _only_ update the attendance field of the stop, no other document updates allowed)
+* `PUT` `/tours/:id/stops/:stopId/attendance` - update a stop (after complete) with number of attendees (NOTE: this should _only_ update the attendance field of the stop, no other document updates allowed)
 
 These need to be E2E tested.
 
@@ -46,11 +51,11 @@ location | geolocation object
 weather | object with weather conditions (see demo, choose some fields)
 attendance | number with min of 1 (not required as will not be available initially)
 
-## Weather Middleware
+## Middlewares
 
 When adding a stop, the API takes an address search, but needs to look up additional information. There are services in the starter code, you'll need to get your own api keys.
 
-Use both geolocation and weather api. This would allow geolocation to return zip for weather api.
+Create middleware for both geolocation and weather api (will need to be chained). This would allow geolocation to return lat, lng for weather api.
 
 
 ## Rubric **15pts**
