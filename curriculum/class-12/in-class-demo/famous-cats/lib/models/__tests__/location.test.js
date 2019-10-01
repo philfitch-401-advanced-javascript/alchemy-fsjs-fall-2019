@@ -12,8 +12,7 @@ describe('Location model', () => {
         longitude: -35
       },
       shows: [{
-        show: new ObjectId(),
-        date: new Date()
+        name: 'The Big Show'
       }]
     };
 
@@ -27,6 +26,7 @@ describe('Location model', () => {
       ...data,
       shows: [{
         _id: expect.any(Object),
+        date: expect.any(Date),
         ...data.shows[0]
       }],
       _id: expect.any(Object),
@@ -40,8 +40,7 @@ describe('Location model', () => {
     const location = new Location(data);
     const { errors } = location.validateSync();
     expect(errors.name.kind).toBe('required');
-    expect(errors['shows.0.show'].kind).toBe('required');
-    expect(errors['shows.0.date'].kind).toBe('required');
+    expect(errors['shows.0.name'].kind).toBe('required');
   });
 
 });

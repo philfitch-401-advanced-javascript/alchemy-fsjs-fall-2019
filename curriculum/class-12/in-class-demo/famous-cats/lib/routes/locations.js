@@ -24,6 +24,51 @@ router
     )
       .then(location => res.json(location))
       .catch(next);
+  })
+
+  .post('/:id/shows', (req, res, next) => {
+    Location.updateById(
+      req.params.id,
+      {
+        $push: {
+          shows: req.body
+        }
+      }
+    )
+      .then(location => {
+        res.json(location.shows[location.shows.length - 1]);
+      })
+      .catch(next);
+  })
+
+  .delete('/:id/shows/:showId', (req, res, next) => {
+    Location.updateById(
+      req.params.id,
+      {
+        $pull: {
+          shows: { _id: req.params.showId }
+        }
+      }
+    )
+      .then(location => {
+        res.json(location.shows);
+      })
+      .catch(next);
+  })
+
+  .put('/:id/shows/:showId/name', (req, res, next) => {
+    Location.updateOne(
+      { _id: req.params.id, 'shows._id': req.params.showId },
+      {
+        $set: {
+          'shows.$.name': req.body.name
+        }
+      }
+    )
+      .then(location => {
+        res.json(location.shows);
+      })
+      .catch(next);
   });
 
 module.exports = router;

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const { ObjectId } = Schema.Types;
-const { RequiredString, RequiredDate } = require('./required-types');
+const { RequiredString } = require('./required-types');
 
 const schema = new Schema({
   name: RequiredString,
@@ -11,12 +10,11 @@ const schema = new Schema({
     longitude: Number
   },
   shows: [{
-    show: {
-      type: ObjectId,
-      ref: 'Show',
-      required: true
-    },
-    date: RequiredDate
+    name: RequiredString,
+    date: {
+      type: Date,
+      default: () => new Date()
+    }
   }]
 });
 
