@@ -63,7 +63,25 @@ Route all errors to this handler for consistency and to have a single place erro
 * Unhandled Promise rejections
     * 500
 
+## Mongo(ose) Partial Updates
+
+* Commands prefixed with `$`
+* Mongoose methods are doing a `$set` (`$unset`)
+    * (separate `replace` method)
+* Array manipulation
+    * `$push`
+    * `$addToSet`
+    * `$pull`
+
 ## Better `jest`
 
 * Look at rest of `expect` matchers for deep equal
 * Use object spread
+
+## Promise Chaining
+
+Core issue:
+1. Sequential work should not be nested
+1. But what happens when we need access to a value from a prior step?
+
+How does `async`/`await` help here?
