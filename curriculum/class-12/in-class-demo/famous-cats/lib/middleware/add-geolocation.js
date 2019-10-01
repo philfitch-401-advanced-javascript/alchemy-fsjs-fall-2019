@@ -1,4 +1,4 @@
-const { getLocation } = require('../services/maps-api');
+const getLocation = require('../services/maps-api');
 
 module.exports = () => (req, res, next) => {
   const { address } = req.body;

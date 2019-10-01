@@ -1,6 +1,13 @@
+jest.mock('../../lib/services/maps-api');
 const request = require('../request');
 const db = require('../db');
 const { matchMongoId } = require('../match-helpers');
+const getLocation = require('../../lib/services/maps-api');
+
+getLocation.mockResolvedValue({
+  latitude: 45.5266975,
+  longitude: -122.6880503
+});
 
 describe('locations api', () => {
   beforeEach(() => {
