@@ -41,33 +41,43 @@ describe('locations api', () => {
     });
   });
 
-  it('adds a show to a location', () => {
-    const show = { name: 'Good Thymes' };
+  const show1 = { name: 'Good Thymes' };
 
-    return postLocation(location1)
+  function postLocationWithShow(location, show) {
+    return postLocation(location)
       .then(location => {
         return request
           .post(`/api/locations/${location._id}/shows`)
           .send(show)
-          .then(({ body }) => body);
+          .expect(200)
+          .then(({ body }) => [location, body]);
+      });
+  }
+
+  it('adds a show to a location', () => {
+
+    return postLocationWithShow(location1, show1)
+      .then(([, shows]) => {
+        expect(shows[0]).toEqual({
+          ...matchMongoId,
+          ...show1,
+          date: expect.any(String)
+        });
+      });
+          
+  });
+
+  it('removes a show', () => {
+
+    return postLocationWithShow(location1, show1)
+      .then(([location, shows]) => {
+        return request
+          .delete(`/api/locations/${location._id}/shows/${shows[0]._id}`)
+          .expect(200);
       })
-      .then(show => {
-        expect(show).toMatchInlineSnapshot(
-          matchMongoId,
-          `
-          Object {
-            "__v": 0,
-            "_id": StringMatching /\\^\\[a-f\\\\d\\]\\{24\\}\\$/i,
-            "address": "97209",
-            "location": Object {
-              "latitude": 45.5266975,
-              "longitude": -122.6880503,
-            },
-            "name": "Test Location 1",
-            "shows": Array [],
-          }
-        `
-        );
+      .then(({ body }) => {
+        expect(body.length).toBe(0);
       });
   });
+
 });
