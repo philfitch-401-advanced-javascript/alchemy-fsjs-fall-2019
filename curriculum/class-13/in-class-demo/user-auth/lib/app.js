@@ -11,7 +11,7 @@ if(process.env.NODE_ENV !== 'test') {
 }
 app.use(express.static('public'));
 app.use(express.json());
-app.use(checkConnection);
+app.use(checkConnection());
 
 // IS ALIVE TEST
 app.get('/hello', (req, res) => res.send('world'));
