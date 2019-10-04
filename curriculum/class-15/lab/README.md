@@ -25,7 +25,7 @@ Check the `payload.roles` and if includes role passed in (should be `admin`) cal
         - `DELETE /api/auth/users/:id/roles/:role`
             - Remove role from user of `:id`
         - `GET /api/auth/users`
-            - Return `_id` and `email` of all users
+            - Return `_id`, `email`, and `roles` of all users
     1. Disallow a user from removing their own `admin` role.
     1. STRETCH: Use a sub-router!
 

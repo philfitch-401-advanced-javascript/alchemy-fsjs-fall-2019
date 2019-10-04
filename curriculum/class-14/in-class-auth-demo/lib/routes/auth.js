@@ -46,7 +46,7 @@ router
             error: `Email ${body.email} already in use`
           };
         }
-
+        
         return User.create(req.body);
       })
       .then(user => sendUser(res, user))
