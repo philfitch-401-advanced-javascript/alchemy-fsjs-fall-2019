@@ -1,4 +1,4 @@
-User Roles
+User Authorization with Roles
 ===
 
 ## Description
@@ -9,12 +9,14 @@ Continue on your auth lab from yesterday
 
 ### Create `ensureRole('role')` Middleware
 
-Needs to be downstream from `ensureAuth`. Check the `payload.roles` and if includes role passed in (should be `admin`) call `next`, otherwise should be error with appropriate `statusCode` and `error` message.
+Check the `payload.roles` and if includes role passed in (should be `admin`) call `next`, otherwise should be error with appropriate `statusCode` and `error` message.
+
+**Needs to be used downstream from `ensureAuth` so that user payload is on `req`**
 
 ### Adding and Removing Roles
 
 1. Create a bootstrap script that uses the user model to directly add (`$addToSet`) the admin role to a given user id.
-1. Make sure that on sign-up you do not save `roles` posted as part of the user save.
+1. Make sure that on sign-up you do not save `roles` property that may have been included with request!
 1. Add a new routes to `auth.js` router:
     1. A User must be an admin to call these routes
     1. Full urls:
