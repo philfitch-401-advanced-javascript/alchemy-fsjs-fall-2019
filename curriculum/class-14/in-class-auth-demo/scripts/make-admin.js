@@ -8,6 +8,8 @@ const mongoose = require('mongoose');
 connect(process.env.MONGODB_URI);
 const userId = process.argv[2];
 
+console.log('Making user', userId, 'admin');
+
 // or maybe you have a User.addRole ...?
 User.updateById(
   userId,
