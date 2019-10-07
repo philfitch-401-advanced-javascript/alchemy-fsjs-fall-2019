@@ -20,6 +20,25 @@ Mongo Aggregation
     2. Work out commands in Compass or Robo3T
     3. Copy to Route when complete
 
+### Key Operators
+
+* `$match`
+    * filter documents, either pre or post
+    * same syntax as `find`
+* `$group`
+    * aggregate based on given `_id` "key(s)"
+    * use `$sum`, `$min`, `$avg`, etc.
+* `$unwind`
+    * access data in arrays
+    * "multiplies" documents (like a SQL join)
+* `$project` (verb, not a noun)
+    * shape and prune data
+* `$sort`
+    * useful after an aggregation to get "top"
+* `$sample`
+    * return a random sample
+    * good for features of "random" selections
+
 ### Exercise
 
 Restaurant Data
