@@ -7,6 +7,12 @@ All the data can be found here:
 
 https://github.com/ozlerhakan/mongodb-json-files
 
+Import using `mongoimport`:
+
+```sh
+$ mongoimport --db test-data --collection restaurants --file restaurants.json 
+```
+
 ## Details
 
 For each challenge:
