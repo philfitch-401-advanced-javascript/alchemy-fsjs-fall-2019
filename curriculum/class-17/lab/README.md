@@ -10,7 +10,7 @@ Your CLI app must use at least three routes from your server. At least one must 
 
 ## Rubric:
 
-CLI App project organization and setup **3pts**
-Read and display data **4pts**
-Write data to API **3pts**
+* CLI App project organization and setup **3pts**
+* Read and display data **4pts**
+* Write data to API **3pts**
 
