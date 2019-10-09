@@ -30,16 +30,21 @@ Connect the application (app.js) to a `socker.io` server and emit messages relat
 
 #### Server
 * Create a socket.io server in a new folder called `server`
-* Setup listeners for `file-save` and `file-error` events
-* When they occur, `emit()` the appropriate event and payload to clients (specficially, the 'logger' will pick this up)
+* Setup listeners for `file-read`, `file-write`, `file-saved`, and `file-error` events
+* When they occur, broadcast the appropriate event and payload to clients
 
-#### Logger
-* Create a socket.io server for logging in a new folder called `logger`
-* Connect the logger to the socket.io server
-  * Listen for `file-save` and `file-error` events
-  * console.log() both error and save messages
+#### Reader
+* Create a file `reader.js`
+* Connect your reader to the socket.io server
+* Refactor the app to be modular, testable, and clean
+  * Read/Write should be done in promises, not callbacks
+  * File Reading/Writing/Uppercasing should happen in one module
+    * Each operation should be in a separate function
+* Rather than throwing errors and console.log() inline, fire `file-error` and `file-save` events to the server that you connected to
 
-#### Application
+#### Capitalizer
+
+#### Writer
 * Create an application folder called `app`)
 * Connect your app to the socket.io server
 * Refactor the app to be modular, testable, and clean
