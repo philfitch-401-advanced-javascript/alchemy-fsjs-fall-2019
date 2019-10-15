@@ -1,6 +1,7 @@
 # Exercise 1: Date adder
 
-Create a function `add` that takes a `date` and `diff`.
+Create a function `add` that takes a `date` and `diff` and returns
+a new date with `diff` added to the original `date`.
 
 * `date` is a `Date` object.
 * `diff` is a string representing the amount of time to add to `date`
