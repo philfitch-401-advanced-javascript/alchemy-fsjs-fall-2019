@@ -1,6 +1,6 @@
 # LAB: Socket.io
 
-Create an event driven application that "distributes" the responsibility for reading,
+Create an event driven application that distributes the responsibility for reading,
 writing, and capitalizing a file to a **separate applications** via Socket.io.
 
 ## Before you begin
@@ -18,8 +18,6 @@ Refer to *Getting Started*  in the [lab submission instructions](../../../refere
   * Writes it back to the file system
 
 ## Requirements
-
-Refactor the provided application (`app.js`) using best practices for modularization, asynchronous file access, and test-ability.
 
 Connect the application (app.js) to a `socker.io` server and emit messages related to file access.  Connect a new application (`logger`) to the server and log all file activity.
 
