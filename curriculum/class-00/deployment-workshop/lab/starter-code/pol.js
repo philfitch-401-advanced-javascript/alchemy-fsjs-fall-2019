@@ -1,4 +1,3 @@
-'use strict';
 
 /**
  * Proof Of Life
@@ -15,4 +14,4 @@ const isAlive = function(dead = false) {
   return !(dead);
 };
 
-module.exports = {isAlive};
+module.exports = { isAlive };

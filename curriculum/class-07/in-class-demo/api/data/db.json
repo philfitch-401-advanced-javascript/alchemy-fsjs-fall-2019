@@ -1,0 +1,56 @@
+{
+  "cats": [
+    {
+      "_id": 1,
+      "name": "felix",
+      "type": "tuxedo"
+    },
+    {
+      "_id": 2,
+      "name": "duchess",
+      "type": "angora"
+    },
+    {
+      "_id": 3,
+      "name": "garfield",
+      "type": "lasagna"
+    }
+  ],
+  "candies": [
+    {
+      "_id": 1,
+      "name": "Reese's Peaces",
+      "hasChocolate": true
+    },
+    {
+      "_id": 2,
+      "name": "M & M",
+      "hasChocolate": true
+    },
+    {
+      "_id": 3,
+      "name": "Snickers",
+      "hasChocolate": true
+    },
+    {
+      "name": "Skittles",
+      "_id": 4,
+      "hasChocolate": false
+    },
+    {
+      "name": "5th Avenue",
+      "_id": 5,
+      "hasChocolate": true
+    },
+    {
+      "name": "Gummy Worms",
+      "_id": 6,
+      "hasChocolate": false
+    }
+  ],
+  "profile": { 
+    "_id": 1,
+    "name": "Marty",
+    "favoriteCandies": [2, 4]
+  }
+}
